@@ -1,0 +1,230 @@
+import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800')
+
+$light-grey: #EDEDED
+$swide: 1370px
+
+body
+  font-family: 'Open Sans', sans-serif
+  background-color: tomato
+  color: $light-grey
+  text-rendering: optimizeLegibility
+  overflow: hidden
+  a
+    color: $light-grey
+    text-decoration: none
+.container
+  height: 100vh
+  .logo-container
+    position: absolute
+    top: 80px
+    left: 80px
+    @media (max-width: $swide)
+      top: 40px
+      left: 40px
+    .logo
+      background-image: url(./images/icons/logo-silver.svg)
+      height: 60px
+      width: 60px
+      background-repeat: no-repeat
+      background-size: 100%
+  .navbar-button
+    position: relative
+    z-index: 50
+    ul.side-nav-handler
+      list-style-type: none
+      max-width: 40px
+      position: absolute
+      top: 80px
+      right: 80px
+      transform: rotate(180deg)
+      padding: 0
+      margin: 0
+      cursor: pointer
+      z-index: 99999
+      @media (max-width: $swide)
+        top: 40px
+        right: 40px
+      &.active-button
+        li
+          background-color: tomato
+      li
+        height: 2px
+        background-color: $light-grey
+        margin-top: 20px
+        transition: width 0.3s
+      li:nth-child(2)
+        width: 33px
+      li:first-child, li:last-child
+        width: 40px
+      &:hover
+        // height: 30px
+        // padding: 10px 0
+        li:nth-child(2)
+          width: 40px
+          // display: none
+        li:first-child
+          // width: 20px
+          // transform: rotate(45deg)
+        li:last-child
+          // width: 20px
+          // transform: rotate(-45deg)
+          //   margin-top: 0
+  .offscreen-container
+    position: absolute
+    width: 400px
+    right: 0
+    top: 0
+    opacity: 0
+    height: 100vh
+    transform: translateX(500px)
+    background-color: $light-grey
+    padding: 150px 80px 50px
+    transition: all 0.3s
+    z-index: 40
+    box-sizing: border-box
+    ul
+      list-style-type: none
+      padding: 0
+      li
+        font-size: 23px
+        font-weight: 300
+        color: tomato
+        text-align: right
+        margin-top: 20px
+        cursor: not-allowed
+        position: relative
+        &:first-child
+          cursor: pointer
+        &:hover
+          color: black
+
+    &.active-offscreen
+      opacity: 1
+      transform: translateX(0px)
+  .social-container
+    position: absolute
+    bottom: 80px
+    left: 80px
+    @media (max-width: $swide)
+      bottom: 40px
+      left: 40px
+    .social-icon
+      height: 20px
+      width: 20px
+      display: inline-block
+      margin-right: 15px
+      transition: transform 0.3s
+      &.insta
+        background-image: url(./images/icons/insta.svg)
+      &.fb
+        background-image: url(./images/icons/fb.svg)
+      &.be
+        background-image: url(./images/icons/be.svg)
+      &:hover
+        transform: translateY(-3px)
+  .big-feather
+    display: block
+    position: absolute
+    bottom: 30px
+    right: 30px
+    background-image: url(./images/icons/big-feather.svg)
+    height: 380px
+    width: 380px
+    background-repeat: no-repeat
+    background-size: 100%
+    opacity: 0
+    animation-delay: 2.5s
+    animation-duration: 2s
+    animation-name: appearBigFeather
+    animation-fill-mode: forwards
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    @media (max-width: $swide)
+      height: 280px
+      width: 280px
+  .mailto-container
+    transform: rotate(-90deg)
+    position: absolute
+    bottom: 160px
+    right: 0px
+    z-index: 30
+    transition: bottom 0.3s
+    @media (max-width: $swide)
+      bottom: 140px
+      right: -40px
+    &:hover
+      bottom: 163px
+      @media (max-width: $swide)
+        bottom: 143px
+    .envelope-icon
+      height: 20px
+      width: 20px
+      display: inline-block
+      margin: -5px 10px
+      background-image: url(./images/icons/envelope.svg)
+.central-section
+  position: relative
+  width: 460px
+  left: 50%
+  margin-left: -230px
+  top: 50%
+  margin-top: -35px
+  .nest-icon
+    display: inline-block
+    background-image: url(./images/icons/nest-feather-icon.svg)
+    height: 60px
+    width: 60px
+    background-repeat: no-repeat
+    background-size: 100%
+    position: relative
+    z-index: -1
+    opacity: 0
+    animation-delay: 0.5s
+    animation-duration: 1s
+    animation-name: appearFeather
+    animation-fill-mode: forwards
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  .text-container
+    display: inline-block
+    margin-left: 20px
+    padding-left: 20px
+    border-left: 1px solid white
+    background-color: tomato
+    z-index: 99
+    h1
+      letter-spacing: -2.5px
+      font-weight: 300
+      font-size: 44px
+      line-height: 44px
+      margin: 0
+      padding: 0
+    h2
+      letter-spacing: -1.21px
+      font-weight: 300
+      font-size: 23px
+      line-height: 26px
+      margin: 0
+      padding: 0
+.delayed-appearence
+  opacity: 0
+  animation-delay: 1.5s
+  animation-duration: 0.5s
+  animation-name: appearBigFeather
+  animation-fill-mode: forwards
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+
+@keyframes appearFeather
+  0%
+    opacity: 0
+    transform: translateX(100px)
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+@keyframes appearBigFeather
+  0%
+    opacity: 0
+  100%
+    opacity: 1
