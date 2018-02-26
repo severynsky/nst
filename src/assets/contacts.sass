@@ -1,0 +1,66 @@
+@import "variables"
+
+.contact-page
+  background-color: $light-grey
+  .container .navbar-button ul li
+    background-color: $tomato
+
+  .main-contacts-section
+    width: 524px
+    animation: none
+    margin-left: -262px
+    display: inline-block
+    .nest-icon
+      background-image: url(./images/icons/nest-feather-icon-tomato.svg)
+    .text-container
+      background-color: $light-grey
+      border-left: 1px solid tomato
+      border-right: 1px solid tomato
+      margin-right: 20px
+      padding-right: 20px
+      color: tomato
+      a
+        color: tomato
+        font-size: 23px
+        font-weight: 700
+        line-height: 39px
+        text-decoration: underline
+        &:hover
+          color: black
+      a.phone-no
+        font-size: 21px
+        font-weight: 100
+        text-decoration: none
+        display: block
+        line-height: 28px
+    .social-container
+      position: relative
+      bottom: 18px
+      left: -5px
+      display: inline-block
+      opacity: 0
+      animation-delay: 1s
+      animation-duration: 1s
+      animation-name: appearSocial
+      animation-fill-mode: forwards
+      -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      z-index: -1
+      .social-icon-red
+        &.insta
+          background-image: url(./images/icons/insta-red.svg)
+        &.fb
+          background-image: url(./images/icons/fb-red.svg)
+        &.be
+          background-image: url(./images/icons/be-red.svg)
+
+@keyframes appearSocial
+  0%
+    opacity: 0
+    transform: translateX(-100px)
+  99%
+    opacity: 1
+    transform: translateX(0)
+  100%
+    opacity: 1
+    z-index: 10
