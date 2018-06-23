@@ -1,6 +1,10 @@
 import './assets/main.sass';
 import $ from 'jquery';
 
+$(document).ready( () => {
+  $('body').fadeIn(0)
+});
+
 const offscreenNav = $('.offscreen-container')
 const blackCurtain = $('.black-curtain');
 let navOpened = false;
